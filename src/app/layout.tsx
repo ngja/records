@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 import {Nanum_Gothic_Coding} from "next/font/google";
 import "./globals.css";
-import {ThemeProvider} from "next-themes";
+import {ThemeProvider} from "@/components/theme-provider";
 
 const nanumGothicCoding = Nanum_Gothic_Coding({ weight: ['400', '700'], subsets: ['latin'] });
 
