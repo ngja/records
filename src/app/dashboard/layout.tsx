@@ -9,8 +9,10 @@ function DashboardLayout({ children }: { children: React.ReactNode }) {
         <Header/>
       </div>
       <div className="flex">
-        <Sidenav />
-        <div>
+        <div className="flex-none">
+          <Sidenav />
+        </div>
+        <div className="flex-1">
           {children}
         </div>
       </div>

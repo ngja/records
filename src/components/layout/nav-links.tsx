@@ -31,11 +31,11 @@ function NavLinks() {
             key={link.name}
             href={link.href}
             className={cn(
-              'flex items-center justify-start px-3 my-1 rounded-sm text-primary-foreground',
+              'flex items-center justify-start px-3 my-1 rounded-sm',
               {
-                'bg-primary': pathname === link.href,
+                'bg-primary text-primary-foreground': pathname === link.href,
               },
-              pathname === link.href ? 'hover:bg-primary-more' : 'hover:bg-primary',
+              pathname === link.href ? 'hover:bg-primary-more hover:text-primary-foreground' : 'hover:bg-primary hover:text-primary-foreground',
             )}
           >
             <LinkIcon className="w-4" />
