@@ -1,9 +1,8 @@
 import type {Metadata} from "next";
-import {Nanum_Gothic_Coding} from "next/font/google";
 import "./globals.css";
 import {ThemeProvider} from "@/components/theme-provider";
+import {inter} from "@/components/fonts";
 
-const nanumGothicCoding = Nanum_Gothic_Coding({ weight: ['400', '700'], subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: "Records",
@@ -17,9 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${nanumGothicCoding.className} antialiased`}
-      >
+      <body className={`${inter.className} antialiased`}>
       <ThemeProvider
         attribute="class"
         defaultTheme="system"
