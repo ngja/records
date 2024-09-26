@@ -20,6 +20,12 @@ export type Img = {
   url: string,
 }
 
+export const imageSchema = z.object({
+  width: z.number(),
+  height: z.number(),
+  url: z.string(),
+})
+
 export type ArtistDetail = {
   id: string
   name: string
@@ -39,11 +45,7 @@ export type Member = {
 export const memberSchema = z.object({
   id: z.string(),
   name: z.string(),
-  image: z.object({
-    width: z.number(),
-    height: z.number(),
-    url: z.string(),
-  }),
+  image: imageSchema,
 })
 
 export const artistDetailSchema = z.object({
@@ -52,10 +54,26 @@ export const artistDetailSchema = z.object({
   description: z.string(),
   debutDate: z.date(),
   status: z.enum(['ready', 'promoting', 'breakup']),
-  mainImage: z.object({
-    width: z.number(),
-    height: z.number(),
-    url: z.string(),
-  }),
+  mainImage: imageSchema,
   members: z.array(memberSchema)
+})
+
+export type Record = {
+  id: string
+  artistId: string
+  artist: string
+  name: string
+  releaseDate: Date
+  tag: string[]
+  image: Img
+}
+
+export const recordSchema = z.object({
+  id: z.string(),
+  artistId: z.string(),
+  artist: z.string(),
+  name: z.string(),
+  releaseDate: z.date(),
+  tag: z.array(z.string()),
+  image: imageSchema,
 })
