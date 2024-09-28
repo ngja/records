@@ -22,7 +22,7 @@ async function ArtistPage({ params }: { params: { id: string }}) {
           { label: id, href: `/dashboard/artists/${id}` },
         ]} />
       </div>
-      <div className="grid grid-cols-6 gap-4 mt-5">
+      <div className="grid grid-cols-6 gap-6 mt-5">
         <div className="col-span-6 md:col-span-6 mb-3 w-fit">
           <ArtistNameArea name={artistDetail.name} />
         </div>
@@ -40,7 +40,7 @@ async function ArtistPage({ params }: { params: { id: string }}) {
         <div className="rounded-sm col-span-6 md:col-span-6">
           <ArtistMemberArea members={artistDetail.members}/>
         </div>
-        <div className="bg-lime-400 rounded-sm col-span-6 md:col-span-4">
+        <div className="rounded-sm col-span-6 md:col-span-4">
           <ArtistRecordArea records={records}/>
         </div>
         <div className="bg-violet-400 rounded-sm col-span-6 md:col-span-2">수상 경력</div>
