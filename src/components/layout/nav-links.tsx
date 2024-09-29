@@ -33,9 +33,9 @@ function NavLinks() {
             className={cn(
               'flex items-center justify-start px-3 my-1 rounded-sm',
               {
-                'bg-primary text-primary-foreground': pathname === link.href,
+                'bg-primary text-primary-foreground': pathname.startsWith(link.href),
               },
-              pathname === link.href ? 'hover:bg-primary-more hover:text-primary-foreground' : 'hover:bg-primary hover:text-primary-foreground',
+              pathname.startsWith(link.href) ? 'hover:bg-primary-more hover:text-primary-foreground' : 'hover:bg-primary hover:text-primary-foreground',
             )}
           >
             <LinkIcon className="w-4" />

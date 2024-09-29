@@ -43,7 +43,9 @@ async function ArtistPage({ params }: { params: { id: string }}) {
         <div className="rounded-sm col-span-6 md:col-span-4">
           <ArtistRecordArea records={records}/>
         </div>
-        <div className="bg-violet-400 rounded-sm col-span-6 md:col-span-2">수상 경력</div>
+        <div className="bg-violet-400 rounded-sm col-span-6 md:col-span-2">
+          수상 경력
+        </div>
         <div className="bg-fuchsia-400 rounded-sm col-span-6 md:col-span-6">공연</div>
         <div className="bg-indigo-400 rounded-sm col-span-6 md:col-span-6">콘텐츠</div>
         <div className="col-span-6 md:col-span-6">
