@@ -77,3 +77,27 @@ export const recordSchema = z.object({
   tag: z.array(z.string()),
   image: imageSchema,
 })
+
+export type Song = {
+  id: string
+  artistId: string
+  artist: string
+  record: string
+  title: string
+  lyrics: string
+  composition: string
+  arrangement: string
+  releaseDate: Date
+}
+
+export const songSchema = z.object({
+  id: z.string(),
+  artistId: z.string(),
+  artist: z.string(),
+  record: z.string(),
+  title: z.string(),
+  lyrics: z.string(),
+  composition: z.string(),
+  arrangement: z.string(),
+  releaseDate: z.date(),
+})

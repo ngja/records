@@ -20,7 +20,7 @@ function ArtistRecordArea({
         {records.map((record) => (
           <div key={record.id} className="flex flex-col gap-1">
             <div className="flex gap-2 justify-between items-end">
-              <div className="font-bold whitespace-nowrap overflow-hidden text-ellipsis">{record.name}</div>
+              <div className="font-bold truncate">{record.name}</div>
               <div className="text-xs">{format(record.releaseDate, 'yyyy-MM-dd')}</div>
             </div>
             <div>

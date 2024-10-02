@@ -1,4 +1,13 @@
-import {Artist, ArtistDetail, artistDetailSchema, artistSchema, Record, recordSchema} from "@/lib/definitions";
+import {
+  Artist,
+  ArtistDetail,
+  artistDetailSchema,
+  artistSchema,
+  Record,
+  recordSchema,
+  Song,
+  songSchema
+} from "@/lib/definitions";
 import {promises as fs} from "fs";
 import path from "path";
 import {z} from "zod";
@@ -76,3 +85,16 @@ export const dummyCalendarData = [
     "day": "2024-08-10"
   }
 ]
+
+export async function getSongByArtist(artistId: string): Promise<Song[]> {
+  const data = await fs.readFile(
+    path.join(process.cwd(), "src/db/dummy-songs.json"),
+  )
+  const records = JSON.parse(data.toString(), (key, value) => {
+    if (key === 'releaseDate') {
+      return new Date(value);
+    }
+    return value;
+  })
+  return z.array(songSchema).parse(records)
+}
