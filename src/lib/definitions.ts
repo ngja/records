@@ -101,3 +101,15 @@ export const songSchema = z.object({
   arrangement: z.string(),
   releaseDate: z.date(),
 })
+
+export type Mv = {
+  id: string
+  artist: string
+  url: string
+}
+
+export const mvSchema = z.object({
+  id: z.string(),
+  artist: z.string(),
+  url: z.string(),
+})

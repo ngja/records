@@ -2,7 +2,7 @@ import {
   Artist,
   ArtistDetail,
   artistDetailSchema,
-  artistSchema,
+  artistSchema, Mv, mvSchema,
   Record,
   recordSchema,
   Song,
@@ -97,4 +97,12 @@ export async function getSongByArtist(artistId: string): Promise<Song[]> {
     return value;
   })
   return z.array(songSchema).parse(records)
+}
+
+export async function getMvs(): Promise<Mv[]> {
+  const data = await fs.readFile(
+    path.join(process.cwd(), "src/db/dummy-mvs.json"),
+  )
+  const mvs = JSON.parse(data.toString())
+  return z.array(mvSchema).parse(mvs)
 }

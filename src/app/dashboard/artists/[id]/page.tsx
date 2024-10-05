@@ -2,18 +2,22 @@ import React from 'react';
 import BreadcrumbHolder from "@/components/breadcrumb-holder";
 import ArtistNameArea from "@/components/ui/artist/artist-name-area";
 import ArtistPictureArea from "@/components/ui/artist/artist-picture-area";
-import {dummyCalendarData, getArtist, getRecordByArtist, getSongByArtist} from "@/lib/data";
+import {dummyCalendarData, getArtist, getMvs, getRecordByArtist, getSongByArtist} from "@/lib/data";
 import ArtistBasicInfoArea from "@/components/ui/artist/artist-basic-info-area";
 import ArtistMemberArea from "@/components/ui/artist/artist-member-area";
 import ArtistRecordArea from "@/components/ui/artist/artist-record-area";
 import ArtistScheduleArea from "@/components/ui/artist/artist-schedule-area";
 import ArtistSongArea from "@/components/ui/artist/artist-song-area";
+import ArtistPerformanceArea from "@/components/ui/artist/artist-performance-area";
+import ArtistContentArea from "@/components/ui/artist/artist-content-area";
+import ArtistMvArea from "@/components/ui/artist/artist-mv-area";
 
 async function ArtistPage({ params }: { params: { id: string }}) {
   const id = params.id
   const artistDetail = await getArtist(id)
   const records = await getRecordByArtist(id)
   const songs = await getSongByArtist(id)
+  const mvs = await getMvs()
 
   return (
     <div className="p-6">
@@ -26,7 +30,7 @@ async function ArtistPage({ params }: { params: { id: string }}) {
       </div>
       <div className="grid grid-cols-6 gap-6 mt-5">
         <div className="col-span-6 lg:col-span-6 mb-3 w-fit">
-          <ArtistNameArea name={artistDetail.name} />
+          <ArtistNameArea name={artistDetail.name}/>
         </div>
         <div className="col-span-6 lg:col-span-4 w-fit">
           <ArtistPictureArea
@@ -37,7 +41,7 @@ async function ArtistPage({ params }: { params: { id: string }}) {
           />
         </div>
         <div className="col-span-6 lg:col-span-2 w-fit">
-          <ArtistBasicInfoArea name={artistDetail.name} description={artistDetail.description} />
+          <ArtistBasicInfoArea name={artistDetail.name} description={artistDetail.description}/>
         </div>
         <div className="rounded-sm col-span-6 lg:col-span-6">
           <ArtistMemberArea members={artistDetail.members}/>
@@ -48,10 +52,17 @@ async function ArtistPage({ params }: { params: { id: string }}) {
         <div className="rounded-sm col-span-6 lg:col-span-2">
           <ArtistSongArea songs={songs}/>
         </div>
-        <div className="bg-fuchsia-400 rounded-sm col-span-6 lg:col-span-6">공연</div>
-        <div className="bg-indigo-400 rounded-sm col-span-6 lg:col-span-6">콘텐츠</div>
+        <div className="rounded-sm col-span-6 lg:col-span-6">
+          <ArtistMvArea mvs={mvs} />
+        </div>
+        <div className="bg-fuchsia-400 rounded-sm col-span-6 lg:col-span-6">
+          <ArtistPerformanceArea/>
+        </div>
+        <div className="bg-indigo-400 rounded-sm col-span-6 lg:col-span-6">
+          <ArtistContentArea/>
+        </div>
         <div className="col-span-6 lg:col-span-6">
-          <ArtistScheduleArea start="2024-01-01" end="2024-12-31" data={dummyCalendarData} />
+          <ArtistScheduleArea start="2024-01-01" end="2024-12-31" data={dummyCalendarData}/>
         </div>
       </div>
     </div>
