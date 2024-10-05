@@ -2,20 +2,40 @@
 
 import React from 'react';
 import {usePathname} from "next/navigation";
-import {Music, Star} from "lucide-react";
+import {Disc, Music, Play, Star, Ticket, UserRound} from "lucide-react";
 import Link from "next/link";
 import {cn} from "@/lib/utils";
 
 const links = [
+  {
+    name: 'Persons',
+    href: '/dashboard/persons',
+    icon: UserRound,
+  },
   {
     name: 'Artists',
     href: '/dashboard/artists',
     icon: Star,
   },
   {
+    name: 'Records',
+    href: '/dashboard/records',
+    icon: Disc,
+  },
+  {
     name: 'Songs',
     href: '/dashboard/songs',
     icon: Music,
+  },
+  {
+    name: 'Performances',
+    href: '/dashboard/performances',
+    icon: Ticket,
+  },
+  {
+    name: 'Contents',
+    href: '/dashboard/contents',
+    icon: Play,
   },
 ]
 

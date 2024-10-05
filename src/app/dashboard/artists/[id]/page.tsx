@@ -2,7 +2,7 @@ import React from 'react';
 import BreadcrumbHolder from "@/components/breadcrumb-holder";
 import ArtistNameArea from "@/components/ui/artist/artist-name-area";
 import ArtistPictureArea from "@/components/ui/artist/artist-picture-area";
-import {dummyCalendarData, getArtist, getMvs, getRecordByArtist, getSongByArtist} from "@/lib/data";
+import {dummyCalendarData, getArtist, getMvs, getPerformances, getRecordByArtist, getSongByArtist} from "@/lib/data";
 import ArtistBasicInfoArea from "@/components/ui/artist/artist-basic-info-area";
 import ArtistMemberArea from "@/components/ui/artist/artist-member-area";
 import ArtistRecordArea from "@/components/ui/artist/artist-record-area";
@@ -18,6 +18,7 @@ async function ArtistPage({ params }: { params: { id: string }}) {
   const records = await getRecordByArtist(id)
   const songs = await getSongByArtist(id)
   const mvs = await getMvs()
+  const performances = await getPerformances()
 
   return (
     <div className="p-6">
@@ -55,8 +56,11 @@ async function ArtistPage({ params }: { params: { id: string }}) {
         <div className="rounded-sm col-span-6 lg:col-span-6">
           <ArtistMvArea mvs={mvs} />
         </div>
-        <div className="bg-fuchsia-400 rounded-sm col-span-6 lg:col-span-6">
-          <ArtistPerformanceArea/>
+        <div className="rounded-sm col-span-6 lg:col-span-6">
+          <ArtistPerformanceArea
+            concerts={performances.filter(i => i.type === 'concert')}
+            fanevents={performances.filter(i => i.type === 'fanevent')}
+          />
         </div>
         <div className="bg-indigo-400 rounded-sm col-span-6 lg:col-span-6">
           <ArtistContentArea/>

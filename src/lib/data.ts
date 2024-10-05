@@ -2,7 +2,7 @@ import {
   Artist,
   ArtistDetail,
   artistDetailSchema,
-  artistSchema, Mv, mvSchema,
+  artistSchema, Mv, mvSchema, Performance, performanceSchema,
   Record,
   recordSchema,
   Song,
@@ -105,4 +105,17 @@ export async function getMvs(): Promise<Mv[]> {
   )
   const mvs = JSON.parse(data.toString())
   return z.array(mvSchema).parse(mvs)
+}
+
+export async function getPerformances(): Promise<Performance[]> {
+  const data = await fs.readFile(
+    path.join(process.cwd(), "src/db/dummy-performances.json"),
+  )
+  const performances = JSON.parse(data.toString(), (key, value) => {
+    if (key === 'startDate' || key === 'endDate') {
+      return new Date(value);
+    }
+    return value;
+  })
+  return z.array(performanceSchema).parse(performances)
 }

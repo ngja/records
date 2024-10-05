@@ -1,4 +1,4 @@
-import {z} from "zod";
+import {string, z} from "zod";
 
 export type Artist = {
   id: string
@@ -112,4 +112,22 @@ export const mvSchema = z.object({
   id: z.string(),
   artist: z.string(),
   url: z.string(),
+})
+
+export type Performance = {
+  id: string
+  name: string
+  type: 'concert' | 'fanevent'
+  startDate: Date
+  endDate: Date
+  image: Img
+}
+
+export const performanceSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  type: z.string(),
+  startDate: z.date(),
+  endDate: z.date(),
+  image: imageSchema
 })
