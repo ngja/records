@@ -6,7 +6,6 @@ import {dummyCalendarData, getArtist, getMvs, getPerformances, getRecordByArtist
 import ArtistBasicInfoArea from "@/components/ui/artist/artist-basic-info-area";
 import ArtistMemberArea from "@/components/ui/artist/artist-member-area";
 import ArtistRecordArea from "@/components/ui/artist/artist-record-area";
-import ArtistScheduleArea from "@/components/ui/artist/artist-schedule-area";
 import ArtistSongArea from "@/components/ui/artist/artist-song-area";
 import ArtistPerformanceArea from "@/components/ui/artist/artist-performance-area";
 import ArtistContentArea from "@/components/ui/artist/artist-content-area";
@@ -62,11 +61,8 @@ async function ArtistPage({ params }: { params: { id: string }}) {
             fanevents={performances.filter(i => i.type === 'fanevent')}
           />
         </div>
-        <div className="bg-indigo-400 rounded-sm col-span-6 lg:col-span-6">
-          <ArtistContentArea/>
-        </div>
-        <div className="col-span-6 lg:col-span-6">
-          <ArtistScheduleArea start="2024-01-01" end="2024-12-31" data={dummyCalendarData}/>
+        <div className="rounded-sm col-span-6 lg:col-span-6">
+          <ArtistContentArea />
         </div>
       </div>
     </div>

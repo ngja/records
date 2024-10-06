@@ -1,22 +1,22 @@
 'use client';
 
 import React from 'react';
-import {ResponsiveTimeRange} from "@nivo/calendar";
-import {CalendarData} from "@/lib/nivo-definitions";
 import {useTheme} from "next-themes";
 import {Separator} from "@/components/ui/separator";
+import {ResponsiveTimeRange} from "@nivo/calendar";
+import {CalendarData} from "@/lib/nivo-definitions";
 
-interface ArtistScheduleAreaProps {
+interface PersonScheduleAreaProps {
   start: string
   end: string
   data: CalendarData[]
 }
 
-function ArtistScheduleArea({
+function PersonScheduleArea({
   start,
   end,
-  data
-}: ArtistScheduleAreaProps) {
+  data,
+}: PersonScheduleAreaProps) {
   const { theme } = useTheme();
 
   const calendarTheme = {
@@ -56,4 +56,4 @@ function ArtistScheduleArea({
   );
 }
 
-export default ArtistScheduleArea;
+export default PersonScheduleArea;
