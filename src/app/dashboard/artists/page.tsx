@@ -9,7 +9,7 @@ export default async function Page() {
 
   return (
     <div className="max-w-screen-xl min-w-min p-6">
-      <div>
+      <div className="flex h-8 justify-between items-center">
         <BreadcrumbHolder breadcrumbs={[
           { label: "Home", href: "/dashboard" },
           { label: "Artists", href: "/dashboard/artists" },

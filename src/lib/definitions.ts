@@ -149,3 +149,13 @@ export const contentSummarySchema = z.object({
   tv: z.number(),
   radio: z.number(),
 })
+
+export type SelectFormItem = {
+  label: string
+  value: string
+}
+
+export const selectFormItemSchema = z.object({
+  label: z.string(),
+  value: z.string(),
+})

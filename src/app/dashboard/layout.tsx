@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidenav from "@/components/layout/sidenav";
 import Header from "@/components/layout/header";
+import {Toaster} from "@/components/ui/toaster";
 
 function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,6 +16,7 @@ function DashboardLayout({ children }: { children: React.ReactNode }) {
         <div className="flex-1">
           {children}
         </div>
+        <Toaster />
       </div>
     </div>
   );

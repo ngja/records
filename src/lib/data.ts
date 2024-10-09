@@ -4,7 +4,7 @@ import {
   artistDetailSchema,
   artistSchema, ContentSummary, Mv, mvSchema, Performance, performanceSchema,
   Record,
-  recordSchema,
+  recordSchema, SelectFormItem, selectFormItemSchema,
   Song,
   songSchema
 } from "@/lib/definitions";
@@ -118,4 +118,12 @@ export async function getPerformances(): Promise<Performance[]> {
     return value;
   })
   return z.array(performanceSchema).parse(performances)
+}
+
+export async function getCountrySelectItems(): Promise<SelectFormItem[]> {
+  const data = await fs.readFile(
+    path.join(process.cwd(), "src/db/dummy-country-select-items.json"),
+  )
+  const countrySelectItems = JSON.parse(data.toString())
+  return z.array(selectFormItemSchema).parse(countrySelectItems)
 }
