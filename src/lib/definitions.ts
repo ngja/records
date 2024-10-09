@@ -1,4 +1,4 @@
-import {string, z} from "zod";
+import {z} from "zod";
 
 export type Artist = {
   id: string
@@ -126,8 +126,26 @@ export type Performance = {
 export const performanceSchema = z.object({
   id: z.string(),
   name: z.string(),
-  type: z.string(),
+  type: z.enum(['concert', 'fanevent']),
   startDate: z.date(),
   endDate: z.date(),
   image: imageSchema
+})
+
+export type ContentSummary = {
+  date: Date,
+  youtube: number,
+  live: number,
+  web: number,
+  tv: number,
+  radio: number,
+}
+
+export const contentSummarySchema = z.object({
+  date: z.date(),
+  youtube: z.number(),
+  live: z.number(),
+  web: z.number(),
+  tv: z.number(),
+  radio: z.number(),
 })

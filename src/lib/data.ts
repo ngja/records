@@ -2,7 +2,7 @@ import {
   Artist,
   ArtistDetail,
   artistDetailSchema,
-  artistSchema, Mv, mvSchema, Performance, performanceSchema,
+  artistSchema, ContentSummary, Mv, mvSchema, Performance, performanceSchema,
   Record,
   recordSchema,
   Song,

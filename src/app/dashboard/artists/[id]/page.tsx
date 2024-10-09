@@ -2,7 +2,7 @@ import React from 'react';
 import BreadcrumbHolder from "@/components/breadcrumb-holder";
 import ArtistNameArea from "@/components/ui/artist/artist-name-area";
 import ArtistPictureArea from "@/components/ui/artist/artist-picture-area";
-import {dummyCalendarData, getArtist, getMvs, getPerformances, getRecordByArtist, getSongByArtist} from "@/lib/data";
+import {getArtist, getMvs, getPerformances, getRecordByArtist, getSongByArtist} from "@/lib/data";
 import ArtistBasicInfoArea from "@/components/ui/artist/artist-basic-info-area";
 import ArtistMemberArea from "@/components/ui/artist/artist-member-area";
 import ArtistRecordArea from "@/components/ui/artist/artist-record-area";
