@@ -15,11 +15,13 @@ import {format} from "date-fns";
 import {Calendar} from "@/components/ui/calendar";
 import {CalendarDays} from "lucide-react";
 import {useToast} from "@/hooks/use-toast";
+import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
 
 const personCreateFormSchema = z.object({
   name: z.string().min(0).max(10),
   country: z.string(),
   birthday: z.date(),
+  sex: z.string(),
 })
 
 interface PersonCreateFormProps {
@@ -52,7 +54,7 @@ function PersonCreateForm({
 
   return (
     <Form {...form}>
-      <form  onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form  onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         {/* 이름 */}
         <FormField
           control={form.control}
@@ -130,6 +132,41 @@ function PersonCreateForm({
               <FormDescription>
                 Date of birth
               </FormDescription>
+            </FormItem>
+          )}
+        />
+        {/* 성별 */}
+        <FormField
+          control={form.control}
+          name="sex"
+          render={({ field }) => (
+            <FormItem className="flex flex-col w-64">
+              <FormLabel>Sex</FormLabel>
+              <FormControl>
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className="flex space-x-6"
+                >
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="male" />
+                    </FormControl>
+                    <FormLabel>
+                      Male
+                    </FormLabel>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="female" />
+                    </FormControl>
+                    <FormLabel>
+                      Female
+                    </FormLabel>
+                  </FormItem>
+                </RadioGroup>
+              </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
