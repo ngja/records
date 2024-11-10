@@ -2,21 +2,25 @@ import React from 'react';
 import Sidenav from "@/components/layout/sidenav";
 import Header from "@/components/layout/header";
 import {Toaster} from "@/components/ui/toaster";
+import {SidebarProvider, SidebarTrigger} from "@/components/ui/sidebar";
 
-function DashboardLayout({ children }: { children: React.ReactNode }) {
+function DashboardLayout({children}: { children: React.ReactNode }) {
   return (
     <div className="flex-col">
-      <div>
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <Header/>
-      </div>
+      </header>
       <div className="flex">
-        <div className="flex-none">
-          <Sidenav />
-        </div>
-        <div className="flex-1">
-          {children}
-        </div>
-        <Toaster />
+        <SidebarProvider>
+          <div className="flex-none">
+            <Sidenav/>
+          </div>
+          <div className="flex-1">
+            <SidebarTrigger/>
+            {children}
+          </div>
+          <Toaster/>
+        </SidebarProvider>
       </div>
     </div>
   );

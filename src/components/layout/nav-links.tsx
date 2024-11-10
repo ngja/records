@@ -5,6 +5,7 @@ import {usePathname} from "next/navigation";
 import {Disc, Music, Play, Star, Ticket, UserRound} from "lucide-react";
 import Link from "next/link";
 import {cn} from "@/lib/utils";
+import {SidebarMenuButton, SidebarMenuItem} from "@/components/ui/sidebar";
 
 const links = [
   {
@@ -44,25 +45,16 @@ function NavLinks() {
 
   return (
     <>
-      {links.map((link) => {
-        const LinkIcon = link.icon;
-        return (
-          <Link
-            key={link.name}
-            href={link.href}
-            className={cn(
-              'flex items-center justify-start px-3 my-1 rounded-sm',
-              {
-                'bg-primary text-primary-foreground': pathname.startsWith(link.href),
-              },
-              pathname.startsWith(link.href) ? 'hover:bg-primary-more hover:text-primary-foreground' : 'hover:bg-primary hover:text-primary-foreground',
-            )}
-          >
-            <LinkIcon className="w-4" />
-            <p className="pl-2 py-1">{link.name}</p>
-          </Link>
-        )
-      })}
+      {links.map((link) => (
+        <SidebarMenuItem key={link.name}>
+          <SidebarMenuButton asChild isActive={pathname.startsWith(link.href)}>
+            <Link href={link.href}>
+              <link.icon className="w-4" />
+              <p className="pl-2 py-1">{link.name}</p>
+            </Link>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+      ))}
     </>
   );
 }
