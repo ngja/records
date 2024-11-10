@@ -2,10 +2,12 @@ import React from 'react';
 import BreadcrumbHolder from "@/components/breadcrumb-holder";
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
+import {personApi} from "@/lib/api/person-api";
+import {DataTable} from "@/components/ui/table/data-table";
+import {personColumns} from "@/app/dashboard/persons/columns";
 
-function Page() {
-  // data fetch
-
+async function Page() {
+  const response = await personApi.getPersons()
 
   return (
     <div className="max-w-screen-xl min-w-min m-6">
@@ -19,7 +21,7 @@ function Page() {
         </Button>
       </div>
       <div>
-
+        <DataTable columns={personColumns} data={response.results} searchField="name" />
       </div>
     </div>
   );
