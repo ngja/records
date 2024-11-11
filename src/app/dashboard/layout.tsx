@@ -2,7 +2,7 @@ import React from 'react';
 import Sidenav from "@/components/layout/sidenav";
 import Header from "@/components/layout/header";
 import {Toaster} from "@/components/ui/toaster";
-import {SidebarProvider, SidebarTrigger} from "@/components/ui/sidebar";
+import {SidebarProvider} from "@/components/ui/sidebar";
 
 function DashboardLayout({children}: { children: React.ReactNode }) {
   return (
@@ -16,7 +16,6 @@ function DashboardLayout({children}: { children: React.ReactNode }) {
             <Sidenav/>
           </div>
           <div className="flex-1">
-            <SidebarTrigger/>
             {children}
           </div>
           <Toaster/>
