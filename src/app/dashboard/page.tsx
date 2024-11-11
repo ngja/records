@@ -4,7 +4,7 @@ import BreadcrumbHolder from "@/components/breadcrumb-holder";
 export default function DashboardPage() {
   return (
     <div className="m-6">
-      <div className="flex h-8 justify-between items-center">
+      <div>
         <BreadcrumbHolder breadcrumbs={[
           { label: "Home", href: "/dashboard" },
         ]} />

@@ -11,17 +11,19 @@ async function Page() {
 
   return (
     <div className="max-w-screen-xl min-w-min m-6">
-      <div className="flex h-8 justify-between items-center">
+      <div>
         <BreadcrumbHolder breadcrumbs={[
           { label: "Home", href: "/dashboard" },
           { label: "Persons", href: "/dashboard/persons" },
         ]} />
-        <Button asChild size="sm">
-          <Link href="/dashboard/persons/form">Form</Link>
-        </Button>
       </div>
-      <div>
+      <div className="flex flex-col gap-4">
         <DataTable columns={personColumns} data={response.results} searchField="name" />
+        <div className="flex justify-end">
+          <Button asChild size="sm">
+            <Link href="/dashboard/persons/form">Form</Link>
+          </Button>
+        </div>
       </div>
     </div>
   );

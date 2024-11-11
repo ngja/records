@@ -8,7 +8,7 @@ async function Page() {
 
   return (
     <div className="flex flex-col max-w-screen-xl min-w-min m-6 gap-3">
-      <div className="flex h-8 justify-between items-center">
+      <div>
         <BreadcrumbHolder breadcrumbs={[
           {label: "Home", href: "/dashboard"},
           {label: "Persons", href: "/dashboard/persons"},
