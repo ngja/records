@@ -11,7 +11,6 @@ import {
   ChartTooltipContent
 } from "@/components/ui/chart";
 import {Bar, BarChart, BarProps, CartesianGrid, XAxis, YAxis} from "recharts";
-import {chartData} from "@/db/dummy-contents";
 import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import {CategoricalChartState} from "recharts/types/chart/types";
 import {ActiveShape} from "recharts/types/util/types";
@@ -45,7 +44,10 @@ interface ArtistContentAreaProps {
 function ArtistContentArea({
 }: ArtistContentAreaProps) {
   const [activeIndex, setActiveIndex] = useState(0)
-  const activeItem = chartData[activeIndex]
+  const chartData = [
+    { date: "2024-09-01", youtube: 2, live: 1, web: 1, tv: 0, radio: 0 },
+    { date: "2024-09-02", youtube: 0, live: 0, web: 2, tv: 1, radio: 0 },
+  ]
 
   const handleClick = useCallback((entry: CategoricalChartState) => {
     if (entry.activeTooltipIndex) {

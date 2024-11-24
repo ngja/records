@@ -7,7 +7,6 @@ import ArtistMemberArea from "@/components/ui/artist/artist-member-area";
 import ArtistRecordArea from "@/components/ui/artist/artist-record-area";
 import ArtistSongArea from "@/components/ui/artist/artist-song-area";
 import ArtistConcertArea from "@/components/ui/artist/artist-concert-area";
-import ArtistContentArea from "@/components/ui/artist/artist-content-area";
 import ArtistMvArea from "@/components/ui/artist/artist-mv-area";
 import {artistApi} from "@/lib/api/artist-api";
 
@@ -54,9 +53,6 @@ async function ArtistPage({ params }: { params: { id: string }}) {
         </div>
         <div className="rounded-sm col-span-6 lg:col-span-6">
           <ArtistConcertArea concerts={artistDetail.concerts}/>
-        </div>
-        <div className="rounded-sm col-span-6 lg:col-span-6">
-          <ArtistContentArea />
         </div>
       </div>
     </div>

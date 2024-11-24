@@ -1,10 +1,13 @@
 import React from 'react';
 import BreadcrumbHolder from "@/components/breadcrumb-holder";
 import PersonCreateForm from "@/components/forms/person/person-create-form";
-import {getCountrySelectItems} from "@/lib/data";
 
 async function Page() {
-  const countrySelectItems = await getCountrySelectItems()
+  const countrySelectItems = [
+    { label: "대한민국", value: "korea" },
+    { label: "일본", value: "japan" },
+    { label: "미국", value: "usa" },
+  ]
 
   return (
     <div className="flex flex-col max-w-screen-xl min-w-min m-6 gap-3">
