@@ -18,8 +18,8 @@ const links = [
     icon: Star,
   },
   {
-    name: 'Records',
-    href: '/dashboard/records',
+    name: 'Albums',
+    href: '/dashboard/albums',
     icon: Disc,
   },
   {
@@ -28,8 +28,8 @@ const links = [
     icon: Music,
   },
   {
-    name: 'Performances',
-    href: '/dashboard/performances',
+    name: 'Concerts',
+    href: '/dashboard/concerts',
     icon: Ticket,
   },
   {

@@ -14,7 +14,7 @@ function Header() {
     <div className="flex justify-between items-center h-12 py-2 px-4 border-b-2">
       <div>
         <Link href="/dashboard">
-          Records
+          Graphify
         </Link>
       </div>
       <div>

@@ -27,15 +27,3 @@ function Sidenav() {
 }
 
 export default Sidenav;
-
-/*
-*    <div className="flex flex-col min-h-screen w-48 sticky top-0 overflow-y-auto p-4 border-r-2">
-      <div>
-        <div className="mt-2">
-          <NavLinks/>
-        </div>
-      </div>
-    </div>
-*
-*
-* */

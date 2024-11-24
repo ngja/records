@@ -7,7 +7,7 @@ export default function Home() {
       <div>
         <Button asChild>
           <Link href="/dashboard">
-            시작하기
+            Start
           </Link>
         </Button>
       </div>

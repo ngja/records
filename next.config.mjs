@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'placehold.co',
+        hostname: 'cdn.graphify.info',
         port: '',
         pathname: '/**'
       }

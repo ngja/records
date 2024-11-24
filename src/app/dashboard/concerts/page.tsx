@@ -7,7 +7,7 @@ function Page() {
       <div>
         <BreadcrumbHolder breadcrumbs={[
           {label: "Home", href: "/dashboard"},
-          {label: "Songs", href: "/dashboard/songs"},
+          {label: "Concerts", href: "/dashboard/concerts"},
         ]}/>
       </div>
     </div>
