@@ -4,7 +4,6 @@ import React from 'react';
 import {usePathname} from "next/navigation";
 import {Disc, Music, Play, Star, Ticket, UserRound} from "lucide-react";
 import Link from "next/link";
-import {cn} from "@/lib/utils";
 import {SidebarMenuButton, SidebarMenuItem} from "@/components/ui/sidebar";
 
 const links = [
