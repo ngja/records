@@ -2,22 +2,19 @@ import React from 'react';
 import BreadcrumbHolder from "@/components/breadcrumb-holder";
 import ArtistNameArea from "@/components/ui/artist/artist-name-area";
 import ArtistPictureArea from "@/components/ui/artist/artist-picture-area";
-import {getArtist, getMvs, getPerformances, getRecordByArtist, getSongByArtist} from "@/lib/data";
 import ArtistBasicInfoArea from "@/components/ui/artist/artist-basic-info-area";
 import ArtistMemberArea from "@/components/ui/artist/artist-member-area";
 import ArtistRecordArea from "@/components/ui/artist/artist-record-area";
 import ArtistSongArea from "@/components/ui/artist/artist-song-area";
-import ArtistPerformanceArea from "@/components/ui/artist/artist-performance-area";
+import ArtistConcertArea from "@/components/ui/artist/artist-concert-area";
 import ArtistContentArea from "@/components/ui/artist/artist-content-area";
 import ArtistMvArea from "@/components/ui/artist/artist-mv-area";
+import {artistApi} from "@/lib/api/artist-api";
 
 async function ArtistPage({ params }: { params: { id: string }}) {
   const id = params.id
-  const artistDetail = await getArtist(id)
-  const records = await getRecordByArtist(id)
-  const songs = await getSongByArtist(id)
-  const mvs = await getMvs()
-  const performances = await getPerformances()
+  const response = await artistApi.getArtistDetail(id)
+  const artistDetail = response.result
 
   return (
     <div className="p-6">
@@ -25,7 +22,7 @@ async function ArtistPage({ params }: { params: { id: string }}) {
         <BreadcrumbHolder breadcrumbs={[
           { label: "Home", href: "/dashboard" },
           { label: "Artists", href: "/dashboard/artists" },
-          { label: id, href: `/dashboard/artists/${id}` },
+          { label: artistDetail.name, href: `/dashboard/artists/${id}` },
         ]} />
       </div>
       <div className="grid grid-cols-6 gap-6 mt-5">
@@ -35,7 +32,7 @@ async function ArtistPage({ params }: { params: { id: string }}) {
         <div className="col-span-6 lg:col-span-4 w-fit">
           <ArtistPictureArea
             name={artistDetail.name}
-            url={artistDetail.mainImage.url}
+            path={artistDetail.mainImage.path}
             width={artistDetail.mainImage.width}
             height={artistDetail.mainImage.height}
           />
@@ -47,19 +44,16 @@ async function ArtistPage({ params }: { params: { id: string }}) {
           <ArtistMemberArea members={artistDetail.members}/>
         </div>
         <div className="rounded-sm col-span-6 lg:col-span-4">
-          <ArtistRecordArea records={records}/>
+          <ArtistRecordArea records={artistDetail.albums}/>
         </div>
         <div className="rounded-sm col-span-6 lg:col-span-2">
-          <ArtistSongArea songs={songs}/>
+          <ArtistSongArea songs={artistDetail.songs}/>
         </div>
         <div className="rounded-sm col-span-6 lg:col-span-6">
-          <ArtistMvArea mvs={mvs} />
+          <ArtistMvArea mvs={artistDetail.mvs}/>
         </div>
         <div className="rounded-sm col-span-6 lg:col-span-6">
-          <ArtistPerformanceArea
-            concerts={performances.filter(i => i.type === 'concert')}
-            fanevents={performances.filter(i => i.type === 'fanevent')}
-          />
+          <ArtistConcertArea concerts={artistDetail.concerts}/>
         </div>
         <div className="rounded-sm col-span-6 lg:col-span-6">
           <ArtistContentArea />

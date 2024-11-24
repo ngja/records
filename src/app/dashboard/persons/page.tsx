@@ -4,7 +4,7 @@ import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import {personApi} from "@/lib/api/person-api";
 import {DataTable} from "@/components/ui/table/data-table";
-import {personColumns} from "@/app/dashboard/persons/columns";
+import {personColumns} from "@/app/dashboard/persons/person-columns";
 
 async function Page() {
   const response = await personApi.getPersons()

@@ -1,11 +1,11 @@
 import React from 'react';
-import {Member} from "@/lib/definitions";
 import ArtistMember from "@/components/ui/artist/artist-member";
 import {ScrollArea, ScrollBar} from "@/components/ui/scroll-area";
 import {Separator} from "@/components/ui/separator";
+import {ArtistDetailMember} from "@/lib/def/artist-def";
 
 interface ArtistMemberAreaProps {
-  members: Member[]
+  members: ArtistDetailMember[]
 }
 
 function ArtistMemberArea({

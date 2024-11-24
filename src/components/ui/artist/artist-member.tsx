@@ -1,7 +1,8 @@
 import React from 'react';
-import {Img} from "@/lib/definitions";
 import Image from "next/image";
 import {cn} from "@/lib/utils";
+import {Img} from "@/lib/def/common";
+import {cdn} from "@/lib/api/cdn-config";
 
 interface ArtistMemberProps {
   name: string
@@ -15,7 +16,7 @@ function ArtistMember({
   return (
     <div className={cn("flex flex-col justify-center items-center gap-1")}>
       <div>
-        <Image className="rounded-3xl" src={image.url} alt={name} width={image.width} height={image.height} />
+        <Image className="rounded-3xl" src={cdn(image.path)} alt={name} width={image.width} height={image.height} />
       </div>
       <div>{name}</div>
     </div>

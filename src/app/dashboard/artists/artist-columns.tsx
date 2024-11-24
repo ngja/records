@@ -2,11 +2,10 @@
 
 import {ColumnDef} from "@tanstack/react-table"
 import {Artist} from "@/lib/definitions";
-import {format} from "date-fns";
 import Link from "next/link";
 import DataTableColumnHeader from "@/components/ui/table/data-table-column-header";
 
-export const columns: ColumnDef<Artist>[] = [
+export const artistColumns: ColumnDef<Artist>[] = [
   {
     accessorKey: "id",
     header: ({ column }) => (<DataTableColumnHeader column={column} title="ID" />),
@@ -30,7 +29,7 @@ export const columns: ColumnDef<Artist>[] = [
     header: ({ column }) => (<DataTableColumnHeader column={column} title="Debut Date" />),
     cell: ({ row }) => {
       const artist = row.original
-      return format(artist.debutDate, 'yyyy-MM-dd');
+      return artist.debutDate;
     }
   },
   {

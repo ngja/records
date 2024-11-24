@@ -1,12 +1,13 @@
 import React from 'react';
-import {Record} from "@/lib/definitions";
 import Image from "next/image";
 import {Badge} from "@/components/ui/badge";
 import {Separator} from "@/components/ui/separator";
 import {format} from "date-fns";
+import {ArtistDetailAlbum} from "@/lib/def/artist-def";
+import {cdn} from "@/lib/api/cdn-config";
 
 interface ArtistRecordAreaProps {
-  records: Record[]
+  records: ArtistDetailAlbum[]
 }
 
 function ArtistRecordArea({
@@ -24,12 +25,12 @@ function ArtistRecordArea({
               <div className="text-xs">{format(record.releaseDate, 'yyyy-MM-dd')}</div>
             </div>
             <div>
-              {record.tag.map((t) => (
+              {record.tags.map((t) => (
                 <Badge key={t} variant="outline">{t}</Badge>
               ))}
             </div>
             <div>
-              <Image src={record.image.url} alt={record.name} width={record.image.width} height={record.image.height} />
+              <Image src={cdn(record.image.path)} alt={record.name} width={record.image.width} height={record.image.height} />
             </div>
           </div>
         ))}

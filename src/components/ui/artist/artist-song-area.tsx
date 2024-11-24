@@ -1,12 +1,11 @@
 import React from 'react';
 import {Separator} from "@/components/ui/separator";
-import {Song} from "@/lib/definitions";
 import {Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
-import {format} from "date-fns";
 import {ScrollArea, ScrollBar} from "@/components/ui/scroll-area";
+import {ArtistDetailSong} from "@/lib/def/artist-def";
 
 interface ArtistSongArea {
-  songs: Song[]
+  songs: ArtistDetailSong[]
 }
 
 function ArtistSongArea({
@@ -30,8 +29,8 @@ function ArtistSongArea({
             {songs.map((song) => (
               <TableRow key={song.id}>
                 <TableCell className="font-semibold max-w-[100px] truncate">{song.title}</TableCell>
-                <TableCell className="truncate">{song.record}</TableCell>
-                <TableCell className="truncate">{format(song.releaseDate, 'yyyy-MM-dd')}</TableCell>
+                <TableCell className="truncate">{song.album}</TableCell>
+                <TableCell className="truncate">{song.releaseDate}</TableCell>
               </TableRow>
             ))}
           </TableBody>

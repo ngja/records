@@ -1,10 +1,10 @@
 import React from 'react';
 import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel";
-import {Mv} from "@/lib/definitions";
 import {Separator} from "@/components/ui/separator";
+import {ArtistDetailMv} from "@/lib/def/artist-def";
 
 interface ArtistMvArea {
-  mvs: Mv[]
+  mvs: ArtistDetailMv[]
 }
 
 function ArtistMvArea({ mvs }: ArtistMvArea) {

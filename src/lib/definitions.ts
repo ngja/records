@@ -3,15 +3,15 @@ import {z} from "zod";
 export type Artist = {
   id: string
   name: string
-  debutDate: Date
-  status: "ready" | "promoting" | "breakup"
+  debutDate: string
+  status: string
 }
 
 export const artistSchema = z.object({
   id: z.string(),
   name: z.string(),
-  debutDate: z.date(),
-  status: z.enum(['ready', 'promoting', 'breakup']),
+  debutDate: z.string(),
+  status: z.string(),
 })
 
 export type Img = {
