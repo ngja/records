@@ -1,6 +1,5 @@
 import React from 'react';
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
-import {Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
+import {Card, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 
 interface ArtistBasicInfoAreaProps  {
   name: string
