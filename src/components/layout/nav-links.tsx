@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {usePathname} from "next/navigation";
-import {Disc, Music, Play, Star, Ticket, UserRound} from "lucide-react";
+import {Disc, Music, Play, Star, Ticket, Trophy, UserRound} from "lucide-react";
 import Link from "next/link";
 import {SidebarMenuButton, SidebarMenuItem} from "@/components/ui/sidebar";
 
@@ -37,6 +37,11 @@ const links = [
     href: '/dashboard/contents',
     icon: Play,
   },
+  {
+    name: 'Awards',
+    href: '/dashboard/awards',
+    icon: Trophy,
+  }
 ]
 
 function NavLinks() {
